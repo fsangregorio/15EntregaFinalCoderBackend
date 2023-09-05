@@ -1,0 +1,38 @@
+
+version: "3.6"
+
+services:
+  node:
+    container_name: node_1
+
+    restart: always
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./src:/app/src
+      - ./.env:/app/.env
+      
+    ports:
+      - 5000:5000
+
+  mongo:
+    container_name: mongo_1
+
+    image: mongo:6.0
+
+    restart: always
+
+    volumes:
+      - ./db:/data/db
+
+    ports:
+      - 27017:27017
+
+    environment:
+      - MONGODB_ROOT_PASSWORD=12345678
+      - MONGODB_USERNAME=admin
+      - MONGODB_PASSWORD=1234
+      - MONGODB_DATABASE=database
