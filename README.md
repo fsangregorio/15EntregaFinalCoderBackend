@@ -16,4 +16,4 @@ password: `admin`
 
 `npm run dev`
 
-® September 2023 - Francisco Sangregorio ®
+September 2023 - Francisco Sangregorio
